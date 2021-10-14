@@ -1,0 +1,30 @@
+<svg width="241" height="242" viewBox="0 0 241 242" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="filter0_f" x="50.5296" y="191.18" width="139.941" height="36.8862" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="7.44908" result="effect1_foregroundBlur"/>
+        </filter>
+        <filter id="filter1_f" x="42.9162" y="43.1251" width="155.168" height="155.322" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="3.72454" result="effect1_foregroundBlur"/>
+        </filter>
+        <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120.5 121) rotate(90) scale(121 120.5)">
+            <stop stop-color="#1C2C49"/>
+            <stop offset="1" stop-color="#0E192D"/>
+        </radialGradient>
+        <linearGradient id="paint1_linear" x1="141.391" y1="73.0707" x2="96.6446" y2="173.537" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFD88B"/>
+            <stop offset="1" stop-color="#FFA900"/>
+        </linearGradient>
+    </defs>
+    <rect width="241" height="242" rx="120.5" fill="url(#paint0_radial)"/>
+    <g filter="url(#filter0_f)">
+        <path d="M175.572 209.623C175.572 211.581 150.915 213.168 120.5 213.168C90.0844 213.168 65.4277 211.581 65.4277 209.623C65.4277 207.665 90.0844 206.078 120.5 206.078C150.915 206.078 175.572 207.665 175.572 209.623Z" fill="black"/>
+    </g>
+    <path d="M172.675 121C172.675 150.171 149.22 173.819 120.287 173.819C91.3539 173.819 67.8989 150.171 67.8989 121C67.8989 91.8286 91.3539 68.1805 120.287 68.1805C149.22 68.1805 172.675 91.8286 172.675 121Z" fill="url(#paint1_linear)"/>
+    <g filter="url(#filter1_f)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M120.5 190.525C158.976 190.525 190.164 159.3 190.164 120.786C190.164 82.2714 158.976 51.0468 120.5 51.0468C82.0243 51.0468 50.8359 82.2714 50.8359 120.786C50.8359 159.3 82.0243 190.525 120.5 190.525ZM120.5 190.998C159.234 190.998 190.635 159.563 190.635 120.786C190.635 82.009 159.234 50.5742 120.5 50.5742C81.7656 50.5742 50.3652 82.009 50.3652 120.786C50.3652 159.563 81.7656 190.998 120.5 190.998Z" fill="#FFD787"/>
+    </g>
+</svg>
