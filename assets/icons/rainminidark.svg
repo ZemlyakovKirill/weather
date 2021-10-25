@@ -1,11 +1,11 @@
-<svg width="240" height="242" viewBox="0 0 240 242" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="240px" height="242px" viewBox="0 0 240 242" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.762674" height="1.23476">
+        <use xlink:href="#image0" transform="scale(0.0034667 0.00561255)"/>
+    </pattern>
+    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1.04051" height="1.67985">
+        <use xlink:href="#image0" transform="scale(0.00472957 0.00763568)"/>
+    </pattern>
     <defs>
-        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.762674" height="1.23476">
-            <use xlink:href="#image0" transform="scale(0.0034667 0.00561255)"/>
-        </pattern>
-        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1.04051" height="1.67985">
-            <use xlink:href="#image0" transform="scale(0.00472957 0.00763568)"/>
-        </pattern>
         <filter id="filter0_f" x="50.2581" y="191.18" width="139.484" height="36.8862" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>

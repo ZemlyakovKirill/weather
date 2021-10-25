@@ -4,6 +4,7 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:untitled/weatherparse.dart';
+import 'package:untitled/weekforecast.dart';
 
 Container bottomSheet(
     {required BuildContext context,
@@ -46,65 +47,61 @@ Container bottomSheet(
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width,
-            child:Row(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                    4,
+                    (index) => Neumorphic(
+                        style: NeumorphicStyle(
+                            color: Theme.of(context).backgroundColor, depth: 1),
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 7, horizontal: 11),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).backgroundColor,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(
-                                4,
-                                (index) => Neumorphic(
-                                    style: NeumorphicStyle(
-                                        color:
-                                            Theme.of(context).backgroundColor,
-                                        depth: 1),
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 7, horizontal: 11),
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Theme.of(context).backgroundColor,
-                                        shape: BoxShape.rectangle,
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            DateFormat("H:mm").format(DateTime
-                                                .fromMillisecondsSinceEpoch(
-                                                    (listTimeWth)[
-                                                                index]
-                                                            .dt *
-                                                        1000)),
-                                            style: TextStyle(
-                                                fontFamily: "Manrope",
-                                                fontSize: 17,
-                                                color: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1!
-                                                    .color),
-                                          ),
-                                          SvgPicture.asset((listTimeWth)[
-                                          index].desc,
-                                            height: MediaQuery.of(context).size.width*0.1,
-                                            width:MediaQuery.of(context).size.width*0.1,
-                                            allowDrawingOutsideViewBox: true,),
-                                          Text(
-                                            (listTimeWth)[index]
-                                                    .temp
-                                                    .floor()
-                                                    .toString() +
-                                                tempStr,
-                                            style: TextStyle(
-                                                fontFamily: "Manrope",
-                                                fontSize: 17,
-                                                color: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1!
-                                                    .color),
-                                          ),
-                                        ],
-                                      ),
-                                    )))),
+                            children: [
+                              Text(
+                                DateFormat("H:mm").format(
+                                    DateTime.fromMillisecondsSinceEpoch(
+                                        (listTimeWth)[index].dt)),
+                                style: TextStyle(
+                                    fontFamily: "Manrope",
+                                    fontSize: 17,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color),
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(vertical: 10),
+                                child: SvgPicture.asset(
+                                  (listTimeWth)[index].desc,
+                                  height:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ),
+                              Text(
+                                (listTimeWth)[index].temp.floor().toString() +
+                                    tempStr,
+                                style: TextStyle(
+                                    fontFamily: "Manrope",
+                                    fontSize: 17,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color),
+                              ),
+                            ],
+                          ),
+                        )))),
           ),
           Container(
             padding: EdgeInsets.fromLTRB(10, 20, 10, 2),
@@ -298,65 +295,62 @@ Container bottomSheet(
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width,
-            child:Row(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                    4,
+                    (index) => Neumorphic(
+                        style: NeumorphicStyle(
+                            color: Theme.of(context).backgroundColor, depth: 1),
+                        child: Container(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 7, horizontal: 11),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).backgroundColor,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(
-                                4,
-                                (index) => Neumorphic(
-                                    style: NeumorphicStyle(
-                                        color:
-                                            Theme.of(context).backgroundColor,
-                                        depth: 1),
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 7, horizontal: 11),
-                                      decoration: BoxDecoration(
-                                        color:
-                                            Theme.of(context).backgroundColor,
-                                        shape: BoxShape.rectangle,
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            DateFormat("H:mm",).format(DateTime
-                                                .fromMillisecondsSinceEpoch(
-                                                    (listTimeWth)[
-                                                                index]
-                                                            .dt *
-                                                        1000)),
-                                            style: TextStyle(
-                                                fontFamily: "Manrope",
-                                                fontSize: 17,
-                                                color: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1!
-                                                    .color),
-                                          ),
-                                          SvgPicture.asset((listTimeWth)[
-                                          index].desc,
-                                          height: MediaQuery.of(context).size.width*0.1,
-                                          width:MediaQuery.of(context).size.width*0.1,
-                                            allowDrawingOutsideViewBox: true,),
-                                          Text(
-                                            (listTimeWth)[index]
-                                                    .temp
-                                                    .floor()
-                                                    .toString() +
-                                                tempStr,
-                                            style: TextStyle(
-                                                fontFamily: "Manrope",
-                                                fontSize: 17,
-                                                color: Theme.of(context)
-                                                    .textTheme
-                                                    .bodyText1!
-                                                    .color),
-                                          ),
-                                        ],
-                                      ),
-                                    )))),
+                            children: [
+                              Text(
+                                DateFormat(
+                                  "H:mm",
+                                ).format(DateTime.fromMillisecondsSinceEpoch(
+                                    (listTimeWth)[index].dt)),
+                                style: TextStyle(
+                                    fontFamily: "Manrope",
+                                    fontSize: 17,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color),
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(vertical: 10),
+                                child: SvgPicture.asset(
+                                  (listTimeWth)[index].desc,
+                                  height:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.1,
+                                  allowDrawingOutsideViewBox: true,
+                                ),
+                              ),
+                              Text(
+                                (listTimeWth)[index].temp.floor().toString() +
+                                    tempStr,
+                                style: TextStyle(
+                                    fontFamily: "Manrope",
+                                    fontSize: 17,
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color),
+                              ),
+                            ],
+                          ),
+                        )))),
           ),
           Container(
               margin: EdgeInsets.fromLTRB(0, 16, 0, 0),
@@ -370,7 +364,10 @@ Container bottomSheet(
                                       .textTheme
                                       .bodyText2!
                                       .color!)))),
-                  onPressed: null,
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WeekForecast(wth.daily,tempStr,windStr,pressureStr))),
                   child: Text("Прогноз на неделю",
                       style: TextStyle(
                         fontFamily: "Manrope",

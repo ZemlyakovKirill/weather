@@ -14,6 +14,7 @@ import 'package:untitled/settings.dart';
 import 'package:untitled/themechanger.dart';
 import 'package:untitled/weatherparse.dart';
 
+import 'about.dart';
 import 'bottomSheet.dart';
 import 'loading.dart';
 
@@ -40,6 +41,8 @@ class MyApp extends StatelessWidget {
               title: 'Weather App',
               themeMode: themeSnapshot.data != null?themeSnapshot.data:ThemeMode.system,
               theme: ThemeData(
+                canvasColor: Colors.transparent,
+                shadowColor: Color.fromRGBO(0, 0, 0, 0.07),
                 brightness: Brightness.light,
                 backgroundColor: Color.fromRGBO(226, 235, 255, 1),
                 textTheme: TextTheme(
@@ -49,9 +52,17 @@ class MyApp extends StatelessWidget {
                     bodyText2: TextStyle(color: Color.fromRGBO(3, 140, 254, 1)),
                     button: TextStyle(
                       color: Color.fromRGBO(1, 97, 254, 1),
-                    )),
+                    ),
+                    caption: TextStyle(
+                      color: Color.fromRGBO(205, 218, 245, 1),
+                      decorationColor: Color.fromRGBO(156, 188, 255, 1)
+                    )
+
+                ),
               ),
               darkTheme: ThemeData(
+                canvasColor: Colors.transparent,
+                shadowColor: Color.fromRGBO(188, 188, 188, 0.07),
                 brightness: Brightness.dark,
                 backgroundColor: Color.fromRGBO(12, 23, 43, 1),
                 textTheme: TextTheme(
@@ -59,7 +70,11 @@ class MyApp extends StatelessWidget {
                       color: Colors.white,
                     ),
                     bodyText2: TextStyle(color: Colors.white),
-                    button: TextStyle(color: Color.fromRGBO(5, 19, 64, 1))),
+                    button: TextStyle(color: Color.fromRGBO(5, 19, 64, 1)),
+                    caption: TextStyle(
+                        color: Color.fromRGBO(34, 59, 112, 1),
+                        decorationColor: Color.fromRGBO(15, 31, 64, 1)
+                    )),
               ),
               home: const MyHomePage(title: 'Weather App Home'),
             );
@@ -134,17 +149,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _flagChange(){
       flag=!flag;
   }
-  Stream<dynamic> _weatherData(double lat, double lon) async* {
-    yield await weatherLoad(lat, lon,name);
-  }
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-    WidgetsBinding.instance!.addPostFrameCallback((_)  {_setSettings(); });
-    return StreamBuilder(
-        stream: _weatherData(lat, lon),
-        builder: (context, snapshot) {
+    Future.delayed(Duration.zero,(){_setSettings();});
+    return FutureBuilder(
+        future: timedWeatherLoad(lat, lon, context),
+        builder: (context, AsyncSnapshot<Weather> snapshot) {
           if (snapshot!=null) {
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
@@ -162,15 +174,14 @@ class _MyHomePageState extends State<MyHomePage> {
                             fit: BoxFit.cover)),
                     constraints: const BoxConstraints.expand(),
                     padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: FutureBuilder(
-                      future: timedWeatherLoad(lat, lon,context),
-                      builder: (context,AsyncSnapshot<List<SimpleWeather>> sn) {
+                    child: Builder(
+                      builder: (cont) {
                         bool isClosed=true;
                         return StatefulBuilder(
                           builder: (context,StateSetter sState) {
                             return SlidingUpPanel(
                               maxHeight: MediaQuery.of(context).size.height*0.74,
-                              minHeight: sn.connectionState==ConnectionState.done?MediaQuery.of(context).size.height*0.3:0,
+                              minHeight: snapshot.connectionState==ConnectionState.done?MediaQuery.of(context).size.height*0.3:0,
                               onPanelSlide: (pos){
                                 if(pos<0.5&&pos>=0)
                                   sState(()=>isClosed=true);
@@ -180,24 +191,23 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.vertical(top:Radius.circular(15)),
                               panel:Builder(
                                 builder: (context) {
-                                  switch (sn.connectionState) {
+                                  switch (snapshot.connectionState) {
                                     case ConnectionState.done:
                                       return Center(child: bottomSheet(
-                                        context: context,
-                                        date: currentDate(),
-                                        isClosed: isClosed,
-                                        lat: lat,
-                                        lon: lon,
-                                        pressureStr: pressureType,
-                                        tempStr: tempType,
-                                        windStr: windType,
-                                        wth: snapshot.data as Weather,
-                                        listTimeWth: sn.data as List<
-                                          SimpleWeather>
+                                          context: context,
+                                          date: currentDate(),
+                                          isClosed: isClosed,
+                                          lat: lat,
+                                          lon: lon,
+                                          pressureStr: pressureType,
+                                          tempStr: tempType,
+                                          windStr: windType,
+                                          wth: snapshot.data!,
+                                          listTimeWth:snapshot.data!.hourly
                                       ));
                                     default:
                                       return Container();
-                                }
+                                  }
                                 }
                               ),
                               body: Stack(
@@ -391,7 +401,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   .bodyText1!
                                                   .color))),
                                   TextButton.icon(
-                                      onPressed: null,
+                                      onPressed: () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => About())),
                                       icon: Icon(Icons.person,
                                           size: 20,
                                           color: Theme.of(context)

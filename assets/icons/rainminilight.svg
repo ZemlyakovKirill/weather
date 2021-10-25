@@ -1,4 +1,10 @@
 <svg width="241" height="240" viewBox="0 0 241 240" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.755554" height="1.2645">
+        <use xlink:href="#image0" transform="scale(0.00343434 0.00574775)"/>
+    </pattern>
+    <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1.0303" height="1.75085">
+        <use xlink:href="#image0" transform="scale(0.00468319 0.00795842)"/>
+    </pattern>
     <defs>
         <filter id="filter0_b" x="-0.442125" y="-7.13158" width="242.826" height="170.076" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
@@ -12,9 +18,6 @@
             <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
             <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
         </filter>
-        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="0.755554" height="1.2645">
-            <use xlink:href="#image0" transform="scale(0.00343434 0.00574775)"/>
-        </pattern>
         <filter id="filter2_f" x="38.762" y="67.6018" width="127.232" height="116.046" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
@@ -32,9 +35,6 @@
             <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
             <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
         </filter>
-        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1.0303" height="1.75085">
-            <use xlink:href="#image0" transform="scale(0.00468319 0.00795842)"/>
-        </pattern>
         <filter id="filter5_f" x="50.5296" y="189.477" width="139.941" height="36.8276" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>

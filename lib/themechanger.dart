@@ -11,9 +11,9 @@ class ThemeChanger {
     if(prefs.containsKey('themeMode')){
       switch(prefs.getInt('themeMode')){
         case 1:
-          if(DateTime.now().hour>=21&&DateTime.now().hour<=9) {
+          if(DateTime.now().hour>=21||DateTime.now().hour<=9) {
             return ThemeMode.dark;
-          } else {
+          } else{
             return ThemeMode.light;
           }
         case 2:
